@@ -3,7 +3,7 @@ import { makeRandomNumber } from "../utils";
 import { addPoint } from "../utils/chart";
 
 function Ticker() {
-  const [price, setPrice] = useState({ value: 0, ticks: 0 });
+  const [price, setPrice] = useState({ value: 1, ticks: 1 });
   const [color, setColor] = useState("black");
   const prevPrice = useRef(price);
   const canvasRef = useRef();
@@ -29,8 +29,10 @@ function Ticker() {
       setColor("red");
     } else {
       setColor("black");
-    }
+    } 
+    console.log(prevPrice.current)
     prevPrice.current = price;
+    console.log(prevPrice.current)
   }, [price]);
 
   return (
